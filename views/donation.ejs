@@ -1,0 +1,338 @@
+    <!DOCTYPE html>
+    <html>
+
+
+    <head>
+
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>DONATION </title>
+
+        <!-- LOAD MAIN CSS LIBRARIES -->
+        <link rel="icon" href="https://omc.000webhostapp.com/assets/img/logo+.png">
+        <link rel="stylesheet" href="https://omc.000webhostapp.com/assets/css/bootstrap.min.css">
+        <link href="https://omc.000webhostapp.com/assets/font-awesome/css/font-awesome.css" rel="stylesheet">
+
+        <link href="https://omc.000webhostapp.com/assets/css/animate.css" rel="stylesheet">
+        <link href="https://omc.000webhostapp.com/assets/css/style.css" rel="stylesheet">
+        <link href="https://omc.000webhostapp.com/assets/css/sweetalert.css" rel="stylesheet">
+
+        <!--        <link href="https://raw.githubusercontent.com/daneden/animate.css/master/animate.css" rel="stylesheet">-->        <link href="https://omc.000webhostapp.com/assets/landpage/css/datepicker3.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://omc.000webhostapp.com/assets/css/chosen/chosen.css">
+
+    </head>
+
+    <body>
+
+
+
+
+        <!-- START CONTENT -->
+        <div class="row wrapper border-bottom white-bg page-heading">
+            <div class="col-sm-6">
+                <h2>Donor Registration</h2>
+                <ol class="breadcrumb">
+                    <li class="active">
+                        <strong>Donor Registration Form</strong>
+                    </li>
+                </ol>
+            </div>
+
+
+            <div class="wrapper wrapper-content">
+                <form action="/donor" method="POST">
+                    <div class="ibox-content">
+                        <div class="row">
+                            <div class="col-lg-2"></div>
+                            <div class="col-lg-3">
+
+                                <div class="form-group">
+                                    <label for="id">  Id:</label>
+                                    <input type="number" name="id" class="form-control" value="" id="id" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="name">  First Name:</label>
+                                    <input type="text" name="fname" class="form-control" id="name" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="name">  Last Name:</label>
+                                    <input type="text" name="lname" class="form-control" id="name" required>
+                                </div>    
+                                <div class="form-group">
+                                    <label for="email"> E-mail:</label>
+                                    <input type="text" name="email" class="form-control" id="email">
+                                </div>                  
+
+
+
+
+
+                            </div>
+
+
+
+                            <div class="col-lg-2"></div>
+                            <div class="col-lg-3">
+
+                               <div class="form-group">
+                                <label for="address"> Address:</label>
+                                <textarea type="textarea" name="address" class="form-control"  rows="10" cols="5" id="address"> 
+                                </textarea>                                    
+                            </div>
+                            <div class="form-group">
+                                <label for="mobileno">  Mobile No:</label>
+                                <input type="text" name="mobileno" class="form-control" id="mobileno" required >
+                            </div>
+
+
+                            <div class="form-group">
+                                <label for="amount">  Amount:</label>
+                                <input type="number" name="amt" class="form-control" value="" id="amt" required>
+                            </div>
+
+
+                        </div>
+
+
+
+                        <div class="row">
+                            <div class="col-sm-4"></div>
+                            <div class="col-sm-4">
+                                <button type="submit" class="btn btn-primary ">Save</button>
+                                <button type="reset" class="btn btn-info">Reset</button>
+                            </div>
+
+                            <!-- END CONTENT -->
+
+                            <!-- Load footer.php -->
+                            <div class="footer">
+                                <div class="pull-right">
+                                    Developed by  <strong> VITIANS </strong>.
+                                </div>
+                                <div>
+                                    <strong>HOUSING FOR HUMANITY &copy; </strong>2017
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- load theme javascripts and main libraries -->
+                    <!-- Mainly scripts -->
+                    <script src="https://omc.000webhostapp.com/assets/js/jquery.min.js"></script>
+                    <script src="https://omc.000webhostapp.com/assets/js/bootstrap.min.js"></script>
+                    <script src="https://omc.000webhostapp.com/assets/js/plugins/metisMenu/jquery.metisMenu.js"></script>
+                    <script src="https://omc.000webhostapp.com/assets/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+
+                    <!-- Custom and plugin javascript -->
+                    <script src="https://omc.000webhostapp.com/assets/js/inspinia.js"></script>
+                    <script src="https://omc.000webhostapp.com/assets/js/plugins/pace/pace.min.js"></script>
+                    <script src="https://omc.000webhostapp.com/assets/js/sweetalert.min.js"></script>
+                    <script type="text/javascript">
+                        $('#side-menu > li a').hover(function(){
+                            $(this).find('i').addClass('animated swing');
+                        },function(){
+                            $(this).find('i').removeClass('animated swing');
+                        });
+
+                        $("#logout").click(function(e){
+                           e.preventDefault();
+                           var url=this.href;
+
+                           swal({title: "Are you want to log out?",
+                            text: "Make sure save all the data before log out!",
+                            type: "warning",
+                            showCancelButton: true,
+                            confirmButtonColor: "#DD6B55",
+                            confirmButtonText: "Yes, logout!",
+                            closeOnConfirm: false},
+                            function(isConfirm) {
+                              if(isConfirm){                                             
+                                window.location=url;
+                            }
+                        });
+                       });
+                        var base_url='https://omc.000webhostapp.com/'
+
+                        $.ajax({
+                           type:'get',
+                           url:base_url+'index.php/inventory/getLowQuantity',
+                           dataType:'json',
+                           success:function(data){
+                              $("#item_count").text(data.length);
+                              $("#msg_item").text(+data.length+" items' quantity are below the reorder level");
+                              $.each(data,function(i,obj){
+                               var html='<li>  <a href="'+base_url+'index.php/inventory/itemList"> <div>'+
+                               '<i class="fa fa-exclamation-triangle fa-fw"></i>'+obj.description+ '<br>Quantity on hand-<strong class="text-danger"> '+obj.qty_on_hand+'</strong>'+                                                          
+                               ' <span class=" text-muted small"> (reorder level-<strong>'+obj.reorder_level+'</strong>)</span>'+                                                        
+                               '  </div></a></li>'+
+                               '<li class="divider"></li>';
+                               $("#low_list").append(html);
+                           });
+
+
+                          }
+
+                      });
+
+                        $.ajax({
+                            type:'get',
+                            url:base_url+'index.php/inquiry/inquiryList',
+                            dataType:'json',
+                            success:function(data){
+                                $("#inquiry_count").text(data.length);
+                                $("#msg_inquiry").text(+data.length+" new inquries available.please response first.");
+                                $.each(data,function(i,obj){
+                                    var html='<li>  <a href="'+base_url+'index.php/inquiry/getInquiry/'+obj.id+'"> <div>'+
+                                    '<i class="fa fa-exclamation-triangle fa-fw"></i>'+obj.id+ '<br>email-<strong class="text-danger"> '+obj.email+'</strong>'+
+                                    ' <span class=" text-muted small"> (Date-<strong>'+obj.date+'</strong>)</span>'+
+                                    '  </div></a></li>'+
+                                    '<li class="divider"></li>';
+                                    $("#inquiry_list").append(html);
+                                });
+                            }
+                        });
+                    </script>
+                    <!-- PAGE LEVEL JAVA SCRIPT -->
+                    <script src="https://omc.000webhostapp.com/assets/js/jquery.validate.js"></script>
+                    <script src="https://omc.000webhostapp.com/assets/landpage/js/bootstrap-datepicker.js"></script>
+                    <script src="https://omc.000webhostapp.com/assets/js/plugins/chosen/chosen.jquery.js"></script>
+
+                    <script>
+                        var config = {
+                            '.chosen-select': {},
+                            '.chosen-select-deselect': {allow_single_deselect: true},
+                            '.chosen-select-no-single': {disable_search_threshold: 10},
+                            '.chosen-select-no-results': {no_results_text: 'Oops, nothing found!'},
+                            '.chosen-select-width': {width: "95%"}
+                        }
+
+                        for (var selector in config) {
+                            $(selector).chosen(config[selector]);
+                        }
+                        $('#bday').datepicker({
+                            endDate: new Date(),
+                            autoclose: true, format: 'yyyy-mm-dd',   todayHighlight: true,
+                            clearBtn: true
+                        });
+
+
+                        function NICValid(value, element) {
+                            return /^[0-9]{9}[VXvx]+$/.test(value);
+                        }
+
+                        $.validator.addMethod("nic", NICValid, "Please insert valid NIC Number");
+
+
+
+                        $('#doctorform').validate({
+                            rules: {
+                                id: {
+                                    minlength: 2,
+                                    required: true
+                                },
+                                slmc: {
+                                    maxlength: 5,
+                                    minlength: 5,
+                                    number: true,
+                                    required: true
+                                },
+                                email: {
+                                    required: true,
+                                    email: true,
+                                    remote: {
+                                        url: "https://omc.000webhostapp.com/index.php/doctor/checkEmail",
+                                        type: "post", async: true
+                                    }
+                                },
+                                contactnum: {
+                                    maxlength: 10,
+                                    minlength: 10,
+                                    number: true,
+                                    required: true
+                                },
+                                address: {
+                                    required: true
+                                },
+                                bday: {
+                                    required: true
+                                },
+                                gender: {
+                                    required: true
+                                },
+                                nic: {
+                                    required: true,
+                                    nic: true,
+                                    remote: {
+                                        url: "https://omc.000webhostapp.com/index.php/doctor/checkNic",
+                                        type: "post", async: true
+                                    }
+
+                                },
+                                name: {
+                                    required: true
+                                },
+                                speciality: {
+                                    required: true
+                                }
+
+                            }, messages: {
+                                nic: {
+                                    required: "NIC is required",
+                                    remote: "NIC Already exist!"
+
+                                }, email: {
+                                    remote: "Email Already exist!"
+
+                                }
+                            },
+                            highlight: function(element) {
+                                $(element).closest('.form-group').addClass('has-error');
+                            },
+                            unhighlight: function(element) {
+                                $(element).closest('.form-group').removeClass('has-error');
+                            },
+                            errorElement: 'span',
+                            errorClass: 'help-block',
+                            errorPlacement: function(error, element) {
+                                if (element.parent('.input-group').length) {
+                                    error.insertAfter(element.parent());
+                                } else {
+                                    error.insertAfter(element);
+                                }
+                            }
+                        });
+                        
+                        $("#doctorform").submit(function (e) {
+                          e.preventDefault();
+
+                          var url=$(this).attr('action');
+                          if(!$(this).valid()) return false;
+                          $.ajax({
+                           type:'POST',
+                           url:url,
+                           data:$(this).serialize(),
+                           success:function (data) {
+                              if(data="true"){
+                                  swal("Successfully Registerd!","You are added a doctor!","success");
+                                  setTimeout(function(){
+                                      window.location="https://omc.000webhostapp.com/index.php/doctor/viewList";
+                                  },2000);
+                              }else{
+                                  swal("Something went wrong","Please contact administrator","error");
+                              }
+
+                          }
+                      });
+
+                      });
+
+
+
+                  </script>
+              </body>
+
+
+              </html>
+
+
+

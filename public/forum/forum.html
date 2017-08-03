@@ -1,0 +1,208 @@
+<html>
+<head>
+<title> FORUMS </title>
+</head>
+<style type="text/css">
+
+ul.tab {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+   
+    background-color: #f1f1f1;
+    width: 150px;
+    height: 800px;
+     background-image: url("green.jpg");
+}
+
+
+ul.tab li {float: bottom;}
+
+
+ul.tab li a {
+    display: inline-block;
+    color: black;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    transition: 0.3s;
+    font-size: 17px;
+}
+
+
+ul.tab li a:hover {background-color: #33cc33;
+}
+
+
+ul.tab li a:focus, .active {background-color: #ccc;}
+
+.tabcontent {
+    display: none;
+    padding: 6px 12px;
+    border: 1px solid #ccc;
+    border-top: none;
+}
+.tab{
+	width: 150px;
+	height: 250px;
+
+}
+body{
+  background-image: url("green.jpg");
+}
+.container{
+	
+	margin: 2px 2px 50px 15px;
+	width: 900px;
+	height:1100px;
+	float: right;
+	padding: 5px;
+	position: absolute;
+	border-radius: 5px;
+	bottom: 20px;
+	left:200px;
+	top:5px;
+	}
+  #image{
+    width:70px;
+    height:70px;
+  }
+  
+  button{
+    width: 90px;
+    height: 30px;
+  }
+  #name{
+    font-weight: bold;
+    float: right;
+    vertical-align: middle;
+  }
+ #fb{
+  width:  30px;
+  height: 30px;
+  float: right;
+  margin-left: 10px;
+ }
+ #Upvote{
+  background-color: red;
+  color:black;
+  font-weight: bold;
+   width: 100px;
+  height:40px;
+ }
+ #Downvote{
+  background-color: blue;
+  color: black;
+  font-weight: bold;
+  width: 100px;
+  height:40px;
+ }
+</style>
+<script type="text/javascript">
+     var clicks1 = 0;
+    function myFunction1() {
+
+        clicks1 += 1;
+        document.getElementById("demo1").innerHTML = clicks1;
+    }
+      
+      var clicks2 = 0;
+    function myFunction2() {
+
+        clicks2 += 1;
+        document.getElementById("demo2").innerHTML = clicks2;
+
+
+    }
+     var clicks3 = 0;
+    function myFunction3() {
+
+        clicks3 += 1;
+        document.getElementById("demo3").innerHTML = clicks3;
+
+
+    }
+     var down1 = 0;
+    function myFunction4() {
+
+        down1 += 1;
+        document.getElementById("demo4").innerHTML = down1;
+
+
+    }
+      var down2 = 0;
+    function myFunction5() {
+
+        down2 += 1;
+        document.getElementById("demo5").innerHTML = down2;
+
+
+    }
+     var down3 = 0;
+    function myFunction6() {
+
+        down3 += 1;
+        document.getElementById("demo6").innerHTML = down3;
+
+
+    }
+    var Liker=0
+    function Likes(){
+
+      Liker=clicks1-down1;
+      document.getElementById("Likes").innerHTML = Liker;
+    }
+</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+<body>
+
+<ul class="tab">
+  <li><a href="all.html" class="tablinks" ">Books</a></li>
+  <li><a href="all.html" class="tablinks" ">Technology</a></li>
+  <li><a href="all.html" class="tablinks" ">Entertainment</a></li> 
+  <li><a href="all.html" class="tablinks" ">Academics</a></li> 
+  <li><a href="all.html" class="tablinks" ">Sports</a></li> 
+  <li><a href="all.html" class="tablinks" ">Miscallenous</a></li> 
+</ul>
+<div class="container">
+<h1 id="heading"> Books and Literature </h1>
+ <hr>
+<img src="img.jpg" id="image" />  Alice Wonderland <br>
+<p> <b> Which books among these should I use for Web Tech? </b> </p> 
+<br>
+
+<img src="book1.jpg" id="books" />
+<img src="book2.jpg" id="books" />
+<img src="book3.jpg" id="books" /> <br>
+<hr>
+<hr>
+<img src="img.jpg" id="image" /> <b> Juile </b>
+<p> I think you should go with Pro Java Programming book. It has all the topics covered in detail and also there are a lot of examples which can help
+you to practice Java Programming. For HTML and CSS i reccomend you to use Basic HTML and CSS books. </p>
+
+<button type="button" value="Upvote" id="Upvote" onclick="myFunction1()" > Upvote <span id="demo1"></span></button> 
+<button type="button" value="Downvote" id="Downvote"  onclick="myFunction4()"> Downvote <span id="demo4"> </button>
+<img src="fb.png"id="fb" />
+<img src="gmail.png"id="fb" />
+<hr>
+
+<img src="img.jpg" id="image" /> <b> John </b>
+<p> I reccomend you to use all 3 books as they all cover different topics for Web Development. </p>
+<button type="button" value="Upvote" id="Upvote" onclick="myFunction2()"> Upvote <span id="demo2"></span> </button>
+<button type="button" value="Downvote" id="Downvote"  onclick="myFunction5()"> Downvote <span id="demo5"> </button>
+
+<img src="fb.png"id="fb" />
+<img src="gmail.png"id="fb" />
+<hr>  
+<img src="img.jpg" id="image" /> <b> Emma </b>
+<p> If you want you can study from Online websites but using books is a good
+choice </p>
+<button type="button" value="Upvote" id="Upvote" onclick="myFunction3()"> Upvote <span id="demo3"></span> </button>
+<button type="button" value="Downvote" id="Downvote"  onclick="myFunction6()"> Downvote <span id="demo6"> </button>
+<img src="fb.png"id="fb" />
+<img src="gmail.png"id="fb" />
+<hr>  
+</body>
+</html>

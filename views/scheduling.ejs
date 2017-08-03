@@ -1,0 +1,158 @@
+<!DOCTYPE HTML>
+
+<html>
+	<head>
+		<title>HOUSE SCHEDULING</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/assets1/css/main.css" />
+		
+		<noscript><link rel="stylesheet" href="assets/assets1/css/noscript.css" /></noscript>
+	</head>
+	<body>
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<div class="logo">
+							<span class="icon 	fa fa-home"></span>
+						</div>
+						<div class="content">
+							<div class="inner">
+								<h1>HOUSE SCHEDULING</h1>
+								<p>Keep track of housing details<br />
+								<!--[-->Track Houses that have been built, are being built and are planned to being built</p>
+							</div>
+						</div>
+						<nav>
+							<ul>
+								<li><a href="#intro">HOUSES BUILT</a></li>
+								<li><a href="#work">BEING BUILT</a></li>
+								<li><a href="#about">PLANNED </a></li>
+								<li><a href="#contact">HOUSE TRACKER</a></li>
+								<!--<li><a href="#elements">Elements</a></li>-->
+							</ul>
+						</nav>
+					</header>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Intro -->
+							<article id="intro">
+								<h2 class="major">HOUSES BUILT</h2>
+								<p>List of houses that been built by our organization for the poor people.</a>.</p>
+								<span class="image main"><img src="images/pic01.jpg" alt="" /></span>
+								<p> 221B BAKER STREET </p>
+								<p>221B Baker Street is the London address of the fictional detective Sherlock Holmes, created by author Sir Arthur Conan Doyle.</p>
+								<span class="image main"><img src="images/pic01.jpg" alt="" /></span>
+								<p> VILLA </p>
+								<p>221B Baker Street is the London address of the fictional detective Sherlock Holmes, created by author Sir Arthur Conan Doyle.</p>
+								<span class="image main"><img src="images/pic01.jpg" alt="" /></span>
+								<p> FARMHOUSE </p>
+								<p>221B Baker Street is the London address of the fictional detective Sherlock Holmes, created by author Sir Arthur Conan Doyle.</p>
+								<b> <p id="first"> </p> </b>
+								<i> <p id="second"> </p> </i>
+								<p id="third"> </p>
+							</article>
+
+						<!-- Work -->
+							<article id="work">
+								<h2 class="major">HOUSES BEING BUILT</h2>
+								List of houses that are under construction.
+								<span class="image main"><img src="images/pic02.jpg" alt="" /></span>
+								<p> The Grand Villa </p>
+								<p>Big house under construction.</p>
+								<span class="image main"><img src="images/pic02.jpg" alt="" /></span>
+								<p> The Grand Villa </p>
+								<p>Big house under construction.</p>
+								
+
+							</article>
+
+						<!-- About -->
+							<article id="about">
+								<h2 class="major">HOUSES PLANNED </h2>
+								<span class="image main"><img src="images/pic03.jpg" alt="" /></span>
+								<p> THE STREET HOUSE </p>
+								<p>Construction process will start as soon as the VILLA is built.</p>
+								<span class="image main"><img src="images/pic03.jpg" alt="" /></span>
+								<p> THE STREET HOUSE </p>
+								<p>Construction process will start as soon as the VILLA is built.</p>
+								<span class="image main"><img src="images/pic03.jpg" alt="" /></span>
+								<p> THE STREET HOUSE </p>
+								<p>Construction process will start as soon as the VILLA is built.</p>
+							</article>
+
+						<!-- Contact -->
+							<article id="contact">
+								<h2 class="major">House Tracker</h2>
+								<form>
+								<div class="field">
+											<label for="demo-category">Category</label>
+											<div class="select-wrapper">
+												<select name="demo-category" id="demo-category" name="HouseType">
+													<option value="">-</option>
+													<option value="1">Houses Built</option>
+													<option value="1">Houses Being Built</option>
+													<option value="1">Houses Planned</option>
+												</select>
+											</div>
+										</div>
+									<div class="field half first">
+										<label for="name">Name</label>
+										<input type="text" name="name" id="name" />
+									</div>
+									<div class="field half">
+										<label for="id">ID</label>
+										<input type="text" name="id" id="id" />
+									</div>
+									<div class="field">
+										<label for="message">Message</label>
+										<textarea name="message" id="message" rows="4"></textarea>
+									</div>
+									<ul class="actions">
+										<li><input type="button" value="Post" onclick="send_details()" class="special" /></li>
+										<li><input type="reset" value="Reset" /></li>
+									</ul>
+								</form>
+								
+								
+										
+
+							
+
+							</article>
+
+					</div>
+
+				<!-- Footer -->
+					<footer id="footer">
+						<p class="copyright">&copy;HOUSING FOR HUMANITY-2017 </p>
+					</footer>
+
+			</div>
+
+		<!-- BG -->
+			<div id="bg"></div>
+
+		<!-- Scripts -->
+			<script src="assets/assets1/js/jquery.min.js"></script>
+			<script src="assets/assets1/js/skel.min.js"></script>
+			<script src="assets/assets1/js/util.js"></script>
+			<script src="assets/assets1/js/main.js"></script>
+			<script type="text/javascript">
+
+				function send_details(){
+
+					document.getElementById("first").innerHTML=document.getElementById("name").value;
+					document.getElementById("second").innerHTML=document.getElementById("id").value;
+					document.getElementById("third").innerHTML=document.getElementById("message").value;
+				}
+
+			</script>
+		
+	</body>
+</html>
